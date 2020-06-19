@@ -1,0 +1,25 @@
+﻿@page "/"
+
+@inject GrpcChannel Channel
+
+<h1>Hello, world!</h1>
+
+Here is the message from the gRPC server:
+
+<br/>
+
+@response
+
+
+@code {
+
+    private string response;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = new Greeter.GreeterClient(Channel);
+        response = (await client.SayHelloAsync(new HelloRequest { Name = ".NET" })).Message;
+    }
+
+
+}
