@@ -34,7 +34,7 @@ namespace Server
         public override Task<GetWeatherForecastsResponse> GetWeatherForecasts(Empty request, ServerCallContext context)
         {
             var rng = new Random();
-            var results = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var results = Enumerable.Range(1, 300).Select(index => new WeatherForecast
             {
                 Date = DateTime.UtcNow.AddDays(index).ToTimestamp(),
                 TemperatureC = rng.Next(-20, 55),
