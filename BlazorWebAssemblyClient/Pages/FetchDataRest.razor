@@ -1,5 +1,6 @@
 @page "/FetchDataRest"
 @inject HttpClient Http
+@inject IConfiguration Configuration
 
 <h1>Weather forecast</h1>
 
@@ -40,7 +41,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         //forecasts = await Http.GetFromJsonAsync<WeatherForecastViewModel[]>("sample-data/weather.json");
-        forecasts = await Http.GetFromJsonAsync<WeatherForecastViewModel[]>("https://localhost:44345/weatherforecast");
+        forecasts = await Http.GetFromJsonAsync<WeatherForecastViewModel[]>(Configuration["RestBackendUrl"]);
     }
 
     public class WeatherForecastViewModel

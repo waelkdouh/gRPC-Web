@@ -25,7 +25,7 @@ namespace BlazorWebAssemblyClient
             {
                 // Get the service address from appsettings.json
                 var config = services.GetRequiredService<IConfiguration>();
-                var backendUrl = config["BackendUrl"];
+                var gRPCbackendUrl = config["GrpcBackendUrl"];
              
                 // Create a channel with a GrpcWebHandler that is addressed to the backend server.
                 //
@@ -33,7 +33,7 @@ namespace BlazorWebAssemblyClient
                 // then GrpcWeb is recommended because it produces smaller messages.
                 var httpHandler = new GrpcWebHandler(GrpcWebMode.GrpcWeb, new HttpClientHandler());
 
-                return GrpcChannel.ForAddress(backendUrl, new GrpcChannelOptions { HttpHandler = httpHandler });
+                return GrpcChannel.ForAddress(gRPCbackendUrl, new GrpcChannelOptions { HttpHandler = httpHandler });
             });
 
 
