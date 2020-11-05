@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 
-namespace Server
+namespace Weather
 {
     public class WeatherService : WeatherForecasts.WeatherForecastsBase
     {

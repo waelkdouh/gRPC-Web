@@ -19,7 +19,7 @@
 using System;
 using Google.Protobuf.WellKnownTypes;
 
-namespace Server
+namespace Weather
 {
     // Properties for the underlying data are generated from the .proto file
     // This partial class just adds some extra convenience properties
