@@ -1,0 +1,33 @@
+name: Auto Comment on New Issues
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Comment on New Issue
+      run: |
+        const { owner, repo } = github.context.repo;
+        const issueNumber = github.context.payload.issue.number;
+        const commentBody = `
+          🎉 Thank you for opening this issue! We will look into it shortly.
+          Please provide any additional information if needed. 🎉
+        `;
+
+        github.issues.createComment({
+          owner,
+          repo,
+          issue_number: issueNumber,
+          body: commentBody,
+        });
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
