@@ -21,8 +21,7 @@ jobs:
           const { owner, repo } = context.repo;
           const issueNumber = context.payload.issue.number;
           const commentBody = `
-            Thank you for opening this issue! We will look into it shortly.
-            Please provide any additional information if needed.
+            🎉 Thank you for opening this issue! We will look into it shortly. Please provide any additional information if needed. 🎉
           `;
 
           github.issues.createComment({
