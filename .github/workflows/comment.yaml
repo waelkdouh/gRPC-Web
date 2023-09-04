@@ -21,7 +21,12 @@ jobs:
           const { owner, repo } = context.repo;
           const issueNumber = context.payload.issue.number;
           const commentBody = `
-            🎉 Thank you for opening this issue! We will look into it shortly. Please provide any additional information if needed. 🎉
+            🎉 Thank you for opening this issue! We will look into it get back to you. 
+                Please provide any additional information if needed (e.g. scrubbed logs, detailed feature requests,etc.).
+
+                Whenever it's feasible, please don't hesitate to send a Pull Request (PR) our way. We'd greatly appreciate it, 
+                and we'll gladly assess and incorporate your changes. 
+            🎉
           `;
 
           github.issues.createComment({
