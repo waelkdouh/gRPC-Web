@@ -18,7 +18,8 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
-          const { owner, repo } = context.repo;
+          const owner = 'waelkdouh';
+          const repo = context.repo.repo;
           const issueNumber = context.payload.issue.number;
           const commentBody = `
             🎉 Thank you for opening this issue! We will look into it get back to you. Please provide any additional information if needed (e.g. scrubbed logs, detailed feature requests,etc.).
